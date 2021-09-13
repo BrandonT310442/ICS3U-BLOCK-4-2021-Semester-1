@@ -22,6 +22,18 @@ public class ExampleSix {
 
     // modulus operator % -> returns the remainder
 
+    int s = 5;
+    s++;
+    ++s;
+    s--;
+    --s;
+
+    int g = 3;
+    int f = 3;
+
+    int test1 = 2 * g++; // does it after
+    int test2 = 2* ++f; // does it before
+
     System.out.println(13 % 3); // 13/3 what is the remainder
     y = y % 2; // equvilent to y %= 2;
 
