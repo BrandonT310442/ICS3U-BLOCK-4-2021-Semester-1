@@ -19,7 +19,7 @@ public class HW10 {
 
         System.out.println("The other value of x is "+x2);
 
-
+// Quadratic fomrula
 
     }
     
