@@ -12,11 +12,13 @@ public class HW10 {
 
         
         
-        double x = (-b+Math.sqrt(b*b-4*a*c))/(2*a);
+        double x = -b+Math.sqrt((b*b-4*a*c))/(2*a);
+        double x2 = -b-Math.sqrt((b*b-4*a*c))/(2*a);
 
         System.out.println("One of the values of x is "+x);
 
-        System.out.println("The other value of x is "+Math.abs(x));
+        System.out.println("The other value of x is "+x2);
+
 
 
     }
