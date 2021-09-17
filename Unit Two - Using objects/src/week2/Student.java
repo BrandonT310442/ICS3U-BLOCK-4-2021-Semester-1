@@ -37,12 +37,44 @@ public class Student {
   }
 
   /**
+   * Overloading a method is when you have multiple methods with the same name but different (paramaters/args)
+   * 
+   * @param name
+   * @param studentNumber
+   */
+  public Student(String name, String studentNumber) {
+    this.name = name;
+    this.studentNumber = studentNumber;
+    this.grade = 9;
+    this.totalMarks = 0;
+    this.numMarks = 0;
+    this.average = 0;
+  }
+
+  /**
    * displayName, displayStudentNumber, increaseGrade, displayGrade The methods
    * (actions) in a class define behaviour for the class
    */
   public void displayName() {
     System.out.println(name);
   }
+
+  /**
+   * returns the name of the student is a non void method also not static
+   
+   * @return
+   */
+  public String getName() {
+
+    return name;
+  }
+
+  public double getAverage() {
+
+
+    return average;
+  }
+  
 
   /**
    * A void method performs a task but does not return a value
@@ -78,5 +110,7 @@ public class Student {
   private void calculateAverage() {
     average = (double) totalMarks / numMarks;
   }
+
+  
 
 }
