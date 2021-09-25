@@ -28,6 +28,16 @@ public class MathClassExamples {
 
 
 
+/** 
+        String oldSeq = "1100000111";
 
+        String segment = "11";
+
+        String newSeq;
+        newSeq = oldSeq.substring(0, oldSeq.indexOf(segment)) + oldSeq.substring(oldSeq.indexOf(segment) + segment.length());
+
+        System.out.println(newSeq);
+
+        */
     }
 }
