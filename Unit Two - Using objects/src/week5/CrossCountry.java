@@ -1,15 +1,24 @@
 package week5;
 import java.util.Scanner;
 public class CrossCountry {
-   public static void main(String[] args) {
-Scanner in = new Scanner(System.in); // system.in refers to default input device which is the keyboard
+
+    // Creates a new scanner and calls the method process runner 3 times in the main method
+    public static void main(String[] args) {
+Scanner in = new Scanner(System.in); 
     processRunner(in);
     processRunner(in);
     processRunner(in);
 in.close();
    }
    
-
+   /** 
+    * This processRunner method is static and has no return time as it is void. It also the passes 
+    * a scanner object as it's argument.
+    * In addition it will create the necessary variables needed.
+    * This method also asks for certain information that is needed to determine the splits. 
+    * Lastly it prints split one, split two, split three and the amount of time it took for the runner 
+    * to complete the 5k run. 
+   */
 private static void processRunner(Scanner in) {
     String firstName, lastName;
     String mileOne, mileTwo, finish;
@@ -20,18 +29,12 @@ private static void processRunner(Scanner in) {
     firstName = in.nextLine();
     System.out.print("Enter your last name: ");
     lastName = in.nextLine();
-    System.out.print("Enter mile one: ");
+    System.out.print("Enter mile one (in mm:ss.sss): ");
     mileOne = in.nextLine();
-    System.out.print("Enter mile two: ");
+    System.out.print("Enter mile two (in mm:ss.sss): ");
     mileTwo = in.nextLine();
-    System.out.print("Enter your 5km time: ");
+    System.out.print("Enter your 5km time (in mm:ss.sss): ");
     finish = in.nextLine();
-
-    /**
-     * get the first and last name of the runner 
-     * get the mile one mile two and finish times for the runner
-     
-*/
      
      splitTwo = subtractTime(mileTwo,mileOne);
      splitThree = subtractTime(finish,mileTwo);
@@ -42,20 +45,17 @@ private static void processRunner(Scanner in) {
      System.out.println("Split Two: "+splitTwo);
      System.out.println("Split Three: "+splitThree);
      System.out.println("Finish Time "+converToTime(convertToSeconds(finish)));
-     //placeholder 
-     // %d  -> placeholder for intergers
-     // %s -> placeholder for strings
-     // %f -> placeholder for doubles.
-     //System.out.printf("%d:%06.3f", minutes, seconds);
-     // return String.format("%d:%06.3f", minutes, seconds);
-     /**
-      * 
-      * Display a summary for the runner
-      */
+   
 }
 
 
-
+/**
+ * Creates a static method called subtractTime. 
+ * Overall this method gets the difference between 2 times which will calculate the splits.
+ * @param endTime // The endTime parameter is a string and its the time where you ended the mile
+ * @param startTime // The startTime parameter is a string and its time time where you started the mile
+ * @return // return type is a String
+ */
 private static String subtractTime(String endTime, String startTime) {
     double endTimeInSeconds = convertToSeconds(endTime);
     double startTimeInSeconds = convertToSeconds(startTime);
@@ -66,15 +66,13 @@ private static String subtractTime(String endTime, String startTime) {
     return converToTime(diffinSeconds);
 }
 
-private static String converToTime(double timeInseconds) {
-
-    int minute = (int)(timeInseconds/60);
-
-    double seconds = timeInseconds%60;
-
-
-    return  String.format("%d:%06.3f", minute, seconds);
-}
+/**
+ * Creates a convertToSeconds method; this method converts the time in the format of "mm:ss.sss" into seconds this way the 
+ * subtract time method can calculate the difference.
+ * 
+ * @param time The time parameter needs to be a string that is converted into the time in seconds.
+ * @return // returns a double of the time in seconds.
+ */
 
 private static double convertToSeconds(String time) {
 
@@ -91,4 +89,22 @@ private static double convertToSeconds(String time) {
     Double finalsecsmillisecs = Double.parseDouble(secsmillisecs);
     return minuteinSecs+finalsecsmillisecs;
 } 
+
+/**
+ * Creates a converToTime method that will convert the difference in seconds back into the necessary 
+ * format (mm:ss.sss)
+ * 
+ * 
+ * @param timeInseconds The timeInSeconds paramater needs to be a double and it is converted back into the necessary format.
+ * @return // returns a string with the time in the format of mm:ss.sss
+ */
+private static String converToTime(double timeInseconds) {
+
+    int minute = (int)(timeInseconds/60);
+
+    double seconds = timeInseconds%60;
+
+
+    return  String.format("%d:%06.3f", minute, seconds);
+}
 }
