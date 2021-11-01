@@ -605,6 +605,7 @@ counter3++;
           }
           }
           System.out.println("Current Top Card: "+Global.topcard);
+          
          }else if (rankocc >= 0 && !cHand.substring(rankocc+1, rankocc+2).equals(suittop)){
             String check = cHand.substring(rankocc, rankocc+1)+cHand.substring(rankocc+1, rankocc+2);
             if (check.equals("10") || check.equals("0") || check.equals("1")){
